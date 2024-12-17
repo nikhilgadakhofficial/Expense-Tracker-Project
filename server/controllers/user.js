@@ -35,6 +35,8 @@ const postLogin = async (req,res)=>{
      
   const found = await User.findOne({email : email ,password : password})
 
+  
+
   if (found) {
     res.json({
       success : true,
