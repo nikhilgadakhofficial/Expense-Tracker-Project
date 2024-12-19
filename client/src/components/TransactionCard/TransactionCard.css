@@ -1,0 +1,44 @@
+.container-card{
+   margin: 40px auto;
+    max-width: 430px;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    border: 1px solid #8dbbec;
+    padding: 20px;
+  }
+  .transaction-itams{
+   border-radius: 7px;
+   padding: 16px;
+    background: #ffffff;
+    border: 1px solid #8dbbec;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 200px;
+    letter-spacing: 2px;
+    margin-top: 1.9rem;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  }
+  .transaction-card{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .transaction-amount{
+    font-weight: 800;
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-top: 6px;
+  margin-bottom: 5px;
+  padding: 5px;
+  }
+  .transaction-text{
+    display: block;
+   text-align: center;
+   font-family: 'Poppins';
+  }
+  .card-map{
+   
+  }

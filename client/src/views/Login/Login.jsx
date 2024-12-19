@@ -20,10 +20,21 @@ function Login() {
 
     console.log(response);
 
-    if (response.data.message) {
+    if (response.data.success) {
+      
       toast.success(response.data.message)
+
+      localStorage.setItem('currentUser',JSON.stringify(response.data.data));
+    
+      toast.loading('Loading To Home Page...');
+
+      setTimeout(()=>{
+        window.location.href = '/'
+      },3000)
+      
+
     } else {
-      toast.error(response.data.message)
+      toast.error(response.data.message);
     }
     
     setEmail('');
@@ -32,9 +43,9 @@ function Login() {
   }
   return (
     <>
-     <div class="container">
+     <div className="container">
       
-      <div class="login form">
+      <div className="login form">
         
           <header>Login</header>
           <form >
@@ -49,13 +60,13 @@ function Login() {
             onChange={(e)=>{setPassword(e.target.value)}}/>
   
   
-            <input type="button" onClick={login} class="button" value="Login"/>
+            <input type="button" onClick={login} className="button" value="Login"/>
   
           </form>
   
-          <div class="signup">
+          <div className="signup">
   
-            <span class="signup">Don't have an account?
+            <span className="signup">Don't have an account?
              <Link to="/signup"><label for="check">Signup</label></Link>
   
             </span>

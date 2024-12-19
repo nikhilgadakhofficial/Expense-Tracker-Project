@@ -37,7 +37,7 @@ app.post("/login",postLogin)
 
 app.post("/transaction", postTransaction)
 
-app.get("/transaction" , getTransction)
+app.get("/transactions" , getTransction)
 
 const PORT =  8081;
 

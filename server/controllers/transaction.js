@@ -43,7 +43,7 @@ const getTransction = async (req , res)=>{
     });
    }
 
-   const transaction = await Transaction.find({user : userId});
+   const transaction = await Transaction.find({user : userId}).sort({createdAt : -1});
 
    res.json({
     success : true,
