@@ -3,12 +3,27 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import TransactionCard from "../../components/TransactionCard/TransactionCard";
 import ImgUser from './user.png'
+import ImgAdd from './add.png'
+import { Link } from "react-router-dom";
 
 function Home() {
   const [user, setUser] = useState("");
   const [transaction, setTransaction] = useState([]);
   const [netIncome,setNetIncome] = useState(0);
   const [netExpense,setNetExpense] = useState(0);
+
+  const loadtransaction = async () => {
+    if (!user._id) {
+      return;
+    }
+    const response = await axios.get(
+      `http://localhost:8081/transactions?userId=${user._id}`
+    );
+    toast.success(response.data.message);
+
+    setTransaction(response.data.data);
+    console.log(response.data.data);
+  };
 
   useEffect(()=>{
   let income = 0;
@@ -40,19 +55,6 @@ function Home() {
     }
   }, []);
 
-  const loadtransaction = async () => {
-    if (!user._id) {
-      return;
-    }
-    const response = await axios.get(
-      `http://localhost:8081/transactions?userId=${user._id}`
-    );
-    toast.success(response.data.message);
-
-    setTransaction(response.data.data);
-    console.log(response.data.data);
-  };
-
   useEffect(() => {
     loadtransaction();
   }, [user]);
@@ -69,19 +71,21 @@ function Home() {
             window.location.href = "/login";
           }, 3000);
         }} className="img" src={ImgUser} />
+         <h6>Logout</h6>
+       <Link to="/transactionAdd"><img className="img2" src={ImgAdd}/></Link>
       </div>
   
     
 
-      <h1 style={{textAlign : "center"}}>Expense Tracker </h1>
+      <h1 style={{textAlign : "center"}}>!! Expense Tracker !! </h1>
 
       <div className="transaction-card">
         <div className="transaction-itams">
-          <span className="transaction-amount"> + { netIncome} </span>
+          <span className="transaction-amount">+{netIncome} </span>
           <span className="transaction-text">Net Income</span>
         </div>
         <div className="transaction-itams">
-          <span className="transaction-amount"> - { netExpense} </span>
+          <span className="transaction-amount">-{netExpense} </span>
           <span className="transaction-text">Net Expense </span>
         </div>
         <div className="transaction-itams">
@@ -102,38 +106,13 @@ function Home() {
             title={title}
             type={type}
             createdAt={createdAt}
+            loadtransaction={loadtransaction}
             />
           )
         })
       }
    </div>
 
-           <div className="container-map">
-            
-            <div className="login form">
-              
-                <header>Login</header>
-                <form >
-                  <input type="text"
-                   placeholder="Enter your email"
-                 />
-        
-                  <input type="password" 
-                  placeholder="Enter your password"
-                />
-        
-        
-                  <input type="button"  className="button" value="Login"/>
-        
-                </form>
-        
-                <div className="signup">
-        
-                  <label for="check">Signup</label>
-        
-                </div>
-              </div>
-            </div>
     </div>
   );
 }

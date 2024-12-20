@@ -89,6 +89,10 @@ body{
 .img{
   height: 40px;
 }
+.img2{
+  height: 50px;
+  margin-top: 20px;
+}
 .img-card{
 position: absolute;
 right: 40px;

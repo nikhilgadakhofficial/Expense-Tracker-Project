@@ -5,6 +5,7 @@ import './index.css'
 import Home from "./views/Home/Home";
 import Signup from "./views/Signup/Signup";
 import Login from "./views/Login/Login";
+import TransactionAdd from "./views/TransactionAdd/TransactionAdd";
 
 
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login/>
+  },
+  {
+    path: "/transactionAdd",
+    element: <TransactionAdd/>
   },
   {
     path: "/*",

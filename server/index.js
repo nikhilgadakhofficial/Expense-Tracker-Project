@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 
 import {postSignup,postLogin} from './controllers/user.js'
-import { postTransaction , getTransction } from "./controllers/transaction.js";
+import { postTransaction , getTransction, deleteTransction } from "./controllers/transaction.js";
 
 dotenv.config();
 
@@ -38,6 +38,8 @@ app.post("/login",postLogin)
 app.post("/transaction", postTransaction)
 
 app.get("/transactions" , getTransction)
+
+app.delete("/transactions/:id", deleteTransction )
 
 const PORT =  8081;
 
