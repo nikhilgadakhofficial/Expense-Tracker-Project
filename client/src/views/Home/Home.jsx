@@ -22,7 +22,7 @@ function Home() {
     toast.success(response.data.message);
 
     setTransaction(response.data.data);
-    console.log(response.data.data);
+    // console.log(response.data.data);
   };
 
   useEffect(()=>{
@@ -59,7 +59,7 @@ function Home() {
     loadtransaction();
   }, [user]);
 
-  console.log(transaction);
+  // console.log(transaction);
   return (
     <div>
       <div className="img-card">

@@ -41,7 +41,10 @@
    font-family: 'Poppins';
   }
   .card-map{
-   
+   max-height: 410px;
+   margin-top: 40px;
+   overflow-y: scroll;
+ 
   }
   .card-title{
     font-family: 'Poppins';
